@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="/socket.io/socket.io.js"></script>
+    <script src="http://localhost:3001/websockets/socket.io.js"></script>
     <title>Web Socket Client</title>
   </head>
   <body>
@@ -45,7 +45,7 @@
         }
       },
       created(){
-        this.socket = io('http://localhost:3000'),
+        this.socket = io('http://localhost:3001', {path: '/websockets'}),
         this.socket.on('messageToClient', (msg) => {
           this.receiveMessage(msg);
           console.log('here')
